@@ -4,21 +4,26 @@
 # 
 
 data_path = "/media/savant/DATA/home/Acads/BTP/data/Data/"
-no_of_users = 182
+#no_of_users = 182
+no_of_users = 2 #testing for 2
 
 class Point:
     def __init__(self):
         self.lat = 0.0
         self.lng = 0.0
         self.alt = 0.0
-    def __init__(self,lat,lng):
-        self.lat = lat
-        self.lng = lng
-        self.alt = 0.0
     def __init__(self,p):
         self.lat = p.lat
         self.lng = p.lng
         self.alt = p.alt
+    def __init__(self,lat,lng):
+        self.lat = lat
+        self.lng = lng
+        self.alt = 0.0
+    def __init__(self,lat,lng,alt):
+        self.lat = lat
+        self.lng = lng
+        self.alt = alt
     def getLat(self):
         return self.lat
     def getLng(self):
@@ -48,7 +53,9 @@ class Region:
         self.pl.append(Point(pur))
         self.pl.append(Point(pll.getLat(),pur.getLng()))
     def union(self,r):
+        #TODO write the union of regions function
         print "union"
+        return r
 
 #Convert number n to a string of 
 def toString(n,dig):
@@ -63,7 +70,17 @@ def toString(n,dig):
 def getTraceFromPlt(file_name):
     t = Trace()
     din = open(file_name,"r")
-    # TODO write the reading part
+    for i in range(6):
+        din.readline() #first 6 lines are useless
+    while(True):
+        x = din.readline()
+        if x=="":
+            break
+        #read x as a csv <lat>,<lng>,0,<alt>,date1,date2,time\r\n
+        x = x.split(',') #split by comma
+        p_temp = Point(float(x[0]),float(x[1]),float(x[3]))
+        t.append(p_temp,None)
+    # TODO write the reading part : done with points, convert time to known thing and pass to append
     return t
 
 #Find the region given a folder path containing plt paths
@@ -73,10 +90,9 @@ def findUserRegion(ipath):
     filenamelist = []
     #TODO get the filenamelist
     for f in filenamelist:
-        t = getTraceFromPlt(f)
+        t = getTraceFromPlt(ipath+f)
         r = findMaxRegion(t)
         r_ans = r_ans.union(r)
-        #TODO now compare it with the old thing
     return r_ans
 
 #Find all the regions for n users in the folder path
@@ -88,3 +104,7 @@ def findAllRegions(path, n):
 
 if __name__=="__main__":
     findAllRegions(data_path, no_of_users)
+    print "Test 1"
+    ipath = data_path+"/"+toString(0,3)+"/Trajectory/"
+    fn = "20081023025304.plt"
+    getTraceFromPlt(ipath+fn)

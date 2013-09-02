@@ -1,0 +1,7 @@
+*.swo
+*.swp
+*.pdf
+*.plt
+*.zip
+Android/
+data/

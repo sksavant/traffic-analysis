@@ -54,8 +54,15 @@ class Region:
         self.pl.append(Point(pll.getLat(),pur.getLng()))
     def union(self,r):
         #TODO write the union of regions function
-        print "union"
-        return r
+        #Assuming rectangular regions
+        pll_temp = Point(min(self.getLLPoint().getLat(),r.getLLPoint().getLat()),min(self.getLLPoint().getLng(),r.getLLPoint().getLng()))
+        pur_temp = Point(max(self.getURPoint().getLat(),r.getURPoint().getLat()),max(self.getURPoint().getLng(),r.getURPoint().getLng()))
+        rnew = Region(pll_temp,pur_temp)
+        return rnew
+    def getLLPoint(self):
+        return self.pl[0]
+    def getURPoint(self):
+        return self.pl[2]
 
 #Convert number n to a string of 
 def toString(n,dig):

@@ -3,7 +3,7 @@
 # Find the map regions for each user the min and max latitude and longitude
 # 
 
-data_path = "/media/savant/DATA/home/Acads/BTP/data/Data/"
+data_path = "/media/savant/DATA/home/Acads/BTP/data/geolife/Data/"
 #no_of_users = 182
 no_of_users = 2 #testing for 2
 

@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from os import listdir
 
 # Find the map regions for each user the min and max latitude and longitude
 # 
@@ -16,11 +17,7 @@ class Point:
         self.lat = p.lat
         self.lng = p.lng
         self.alt = p.alt
-    def __init__(self,lat,lng):
-        self.lat = lat
-        self.lng = lng
-        self.alt = 0.0
-    def __init__(self,lat,lng,alt):
+    def __init__(self,lat,lng,alt=0.0):
         self.lat = lat
         self.lng = lng
         self.alt = alt
@@ -39,11 +36,14 @@ class Trace:
     def delete(self):
         self.array.pop()
     def findLowerLeftPoint(self):
-        res = Point()
-        return res
+        x = map(min, zip(*self.array))
+        return Point(0,0,0) #Point(x[0],x[1])
     def findUpperRightPoint(self):
-        res = Point()
-        return res
+        x = map(max, zip(*self.array))
+        return Point(x[0],x[1])
+    def findMaxRegion(self):
+        return Region(self.findLowerLeftPoint(), self.findUpperRightPoint())
+
 
 class Region:
     def __init__(self,pll,pur):
@@ -94,11 +94,11 @@ def getTraceFromPlt(file_name):
 def findUserRegion(ipath):
     #Now read through all the plt files and get minimum and maximum
     r_ans = None
-    filenamelist = []
-    #TODO get the filenamelist
+    # get the filenamelist
+    filenamelist = [f for f in listdir(ipath) if ".plt" in f]
     for f in filenamelist:
         t = getTraceFromPlt(ipath+f)
-        r = findMaxRegion(t)
+        r = t.findMaxRegion()
         r_ans = r_ans.union(r)
     return r_ans
 

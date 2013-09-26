@@ -1,14 +1,6 @@
 
 class Point:
-    def __init__(self):
-        self.lat = 0.0
-        self.lng = 0.0
-        self.alt = 0.0
-    def __init__(self,p):
-        self.lat = p.lat
-        self.lng = p.lng
-        self.alt = p.alt
-    def __init__(self,lat,lng,alt=0.0):
+    def __init__(self,lat=0.0,lng=0.0,alt=0.0):
         self.lat = lat
         self.lng = lng
         self.alt = alt
@@ -18,6 +10,11 @@ class Point:
         return self.lng
     def getLatLng(self):
         return (self.getLat(),self.getLang())
+    def getCopy(self):
+        p = Point()
+        p.lat = self.lat
+        p.lng = self.lng
+        p.alt = self.alt
 
 class Trace:
     def __init__(self):

@@ -193,12 +193,11 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
                 self.osm = osmgpsmap.GpsMap(
                     repo_uri=uri,
                     image_format=format,
-                    proxy_uri=proxy_address
+                    proxy_uri = proxy_address
                 )
             except Exception, e:
                 print "ERROR:", e
-                self.osm = osm.GpsMap(
-                        proxy_uri=proxy_address)
+                self.osm = osmgpsmap.GpsMap()
 
             self.vbox.pack_start(self.osm, True)
             self.osm.connect('button_release_event', self.map_clicked)
@@ -210,13 +209,13 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
         return True
 
     def zoom_in_clicked(self, button):
-        self.osm.set_zoom(self.osm.props.zoom + 1)
+        self.osm.set_zoom(min(self.osm.props.zoom + 1,self.osm.props.max_zoom))
  
     def zoom_out_clicked(self, button):
-        self.osm.set_zoom(self.osm.props.zoom - 1)
+        self.osm.set_zoom(max(self.osm.props.min_zoom,self.osm.props.zoom - 1))
 
     def home_clicked(self, button):
-        self.osm.set_center_and_zoom(-44.39, 171.25, 12)
+        self.osm.set_center_and_zoom(12.93, 77.62, 12)
 
     def on_query_tooltip(self, widget, x, y, keyboard_tip, tooltip, data=None):
         if keyboard_tip:
@@ -255,13 +254,11 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
             self.osm.image_add(lat,lon,pb)
 
 if __name__ == "__main__":
-    u = UI()
-    u.show_all()
     pfile = open(".proxyauth")
     [user,pwd] = pfile.read().split()
-    print user,pwd
-    proxy_address = "http://"+user+":"+pwd+"@netmon.iitb.ac.in:80/"
-    print proxy_address
+    proxy_address = "http://"+user+":"+pwd+"@netmon.iitb.ac.in:80/\0"
+    u = UI()
+    u.show_all()
     if os.name == "nt": gtk.gdk.threads_enter()
     gtk.main()
     if os.name == "nt": gtk.gdk.threads_leave()

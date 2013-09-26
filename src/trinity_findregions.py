@@ -1,10 +1,14 @@
 #!/usr/bin/python
 from gpstraces import Point,Trace,Region
 
+# The CSV files are in data_path
+# @TODO Change it to correct path
 data_path="/media/savant/DATA/home/Acads/BTP/data/gpstraces/"
+# Stores a dictionary of traces with the SIM numbers as key
+# Trace is defined in gpstraces module
 traces_dict = {}
 
-#Convert number n to a string of 
+#Convert number n to a string of dig digits
 def toString(n,dig):
     if n==0:
         return "0"*dig
@@ -14,9 +18,11 @@ def toString(n,dig):
             return "0"*(dig-temp)+str(n)
         temp=temp+1
 
+# Returns the filename given the day
 def fileName(i):
     return "h"+toString(i,2)+"062011.csv"
 
+# gets all the traces for the ith day
 def getAllTraces(i):
     data_fn = data_path+fileName(i)
     data_file = open(data_fn)
@@ -35,6 +41,10 @@ def getAllTraces(i):
             trace_temp = Trace()
             trace_temp.append(Point(float(x[1])/3600.0,float(x[2])/3600.0),t)
             traces_dict[x[0]] = trace_temp
+    #print traces_dict.keys()
+    temp_key = traces_dict.keys()[0]
+    temp_region = traces_dict[temp_key].findMaxRegion()
+    print temp_region.printMe()
     data_file.close()
 
 if __name__=="__main__":

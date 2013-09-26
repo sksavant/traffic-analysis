@@ -42,12 +42,12 @@ def getAllTraces(i):
             trace_temp.append(Point(float(x[1])/3600.0,float(x[2])/3600.0),t)
             traces_dict[x[0]] = trace_temp
     #print traces_dict.keys()
-    temp_key = traces_dict.keys()[0]
-    temp_trace = traces_dict[temp_key]
-    print len(temp_trace.array)
-    temp_trace.findLowerLeftPoint().printMe()
-    temp_region = temp_trace.findMaxRegion()
-    temp_region.printMe()
+    #temp_key = traces_dict.keys()[0]
+    #temp_trace = traces_dict[temp_key]
+    #print len(temp_trace.array)
+    #temp_trace.findLowerLeftPoint().printMe()
+    #temp_region = temp_trace.findMaxRegion()
+    #temp_region.printMe()
     data_file.close()
 
 if __name__=="__main__":

@@ -27,11 +27,25 @@ class Trace:
     def delete(self):
         self.array.pop()
     def findLowerLeftPoint(self):
-        x = map(min, zip(*self.array))
-        return Point(x[0].lat,x[0].lng)
+        #x = map(min, zip(*self.array)) #Incorrect
+        lt = 200
+        ln = 200
+        for x in self.array:
+            if x[0].lat < lt:
+                lt = x[0].lat
+            if x[0].lng < ln:
+                ln = x[0].lng
+        return Point(lt,ln)
     def findUpperRightPoint(self):
-        x = map(max, zip(*self.array))
-        return Point(x[0].lat,x[0].lng)
+        #x = map(max, zip(*self.array))
+        lt = 0
+        ln = 0
+        for x in self.array:
+            if x[0].lat > lt:
+                lt = x[0].lat
+            if x[0].lng > ln:
+                ln = x[0].lng
+        return Point(lt,ln)
     def findMaxRegion(self):
         return Region(self.findLowerLeftPoint(), self.findUpperRightPoint())
 

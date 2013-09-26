@@ -15,6 +15,9 @@ class Point:
         p.lat = self.lat
         p.lng = self.lng
         p.alt = self.alt
+        return p
+    def printMe(self):
+        print "Lat: ",self.lat,", Lng:",self.lng,", Alt:",self.alt
 
 class Trace:
     def __init__(self):
@@ -36,9 +39,9 @@ class Trace:
 class Region:
     def __init__(self,pll,pur):
         self.pl = []
-        self.pl.append(Point(pll))
+        self.pl.append(pll.getCopy())
         self.pl.append(Point(pur.getLat(),pll.getLng()))
-        self.pl.append(Point(pur))
+        self.pl.append(pur.getCopy())
         self.pl.append(Point(pll.getLat(),pur.getLng()))
     def union(self,r):
         #TODO write the union of regions function
@@ -51,4 +54,7 @@ class Region:
         return self.pl[0]
     def getURPoint(self):
         return self.pl[2]
+    def printMe(self):
+        print "LowerLeftPoint:\n",(self.getLLPoint()).printMe()
+        print "UpperRightPoint:\n",self.getURPoint().printMe()
 

@@ -43,8 +43,11 @@ def getAllTraces(i):
             traces_dict[x[0]] = trace_temp
     #print traces_dict.keys()
     temp_key = traces_dict.keys()[0]
-    temp_region = traces_dict[temp_key].findMaxRegion()
-    print temp_region.printMe()
+    temp_trace = traces_dict[temp_key]
+    print len(temp_trace.array)
+    temp_trace.findLowerLeftPoint().printMe()
+    temp_region = temp_trace.findMaxRegion()
+    temp_region.printMe()
     data_file.close()
 
 if __name__=="__main__":

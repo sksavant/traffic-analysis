@@ -28,10 +28,10 @@ class Trace:
         self.array.pop()
     def findLowerLeftPoint(self):
         x = map(min, zip(*self.array))
-        return Point(0,0,0) #Point(x[0],x[1])
+        return Point(x[0].lat,x[0].lng)
     def findUpperRightPoint(self):
         x = map(max, zip(*self.array))
-        return Point(x[0],x[1])
+        return Point(x[0].lat,x[0].lng)
     def findMaxRegion(self):
         return Region(self.findLowerLeftPoint(), self.findUpperRightPoint())
 
@@ -55,6 +55,8 @@ class Region:
     def getURPoint(self):
         return self.pl[2]
     def printMe(self):
-        print "LowerLeftPoint:\n",(self.getLLPoint()).printMe()
-        print "UpperRightPoint:\n",self.getURPoint().printMe()
+        print "LowerLeftPoint:\n",
+        (self.getLLPoint()).printMe()
+        print "UpperRightPoint:\n",
+        self.getURPoint().printMe()
 

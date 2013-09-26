@@ -35,6 +35,8 @@ print "using library: %s (version %s)" % (osmgpsmap.__file__, osmgpsmap.__versio
 
 assert osmgpsmap.__version__ == "0.7.3"
 
+proxy_address=""
+
 class DummyMapNoGpsPoint(osmgpsmap.GpsMap):
     def do_draw_gps_point(self, drawable):
         pass
@@ -71,7 +73,8 @@ class UI(gtk.Window):
         if 0:
             self.osm = DummyMapNoGpsPoint()
         else:
-            self.osm = osmgpsmap.GpsMap()
+            self.osm = osmgpsmap.GpsMap(
+                    proxy_uri = proxy_address)
         self.osm.layer_add(
                     osmgpsmap.GpsMapOsd(
                         show_dpad=True,
@@ -189,11 +192,13 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
             try:
                 self.osm = osmgpsmap.GpsMap(
                     repo_uri=uri,
-                    image_format=format
+                    image_format=format,
+                    proxy_uri=proxy_address
                 )
             except Exception, e:
                 print "ERROR:", e
-                self.osm = osm.GpsMap()
+                self.osm = osm.GpsMap(
+                        proxy_uri=proxy_address)
 
             self.vbox.pack_start(self.osm, True)
             self.osm.connect('button_release_event', self.map_clicked)
@@ -252,6 +257,11 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
 if __name__ == "__main__":
     u = UI()
     u.show_all()
+    pfile = open(".proxyauth")
+    [user,pwd] = pfile.read().split()
+    print user,pwd
+    proxy_address = "http://"+user+":"+pwd+"@netmon.iitb.ac.in:80/"
+    print proxy_address
     if os.name == "nt": gtk.gdk.threads_enter()
     gtk.main()
     if os.name == "nt": gtk.gdk.threads_leave()

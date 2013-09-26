@@ -34,6 +34,9 @@ def getAllTraces(i):
         #read x as a csv Simnumber, latitude,longitude,place,data,time,speed
         x = x.split(',')
         t = x[5]
+        sim = x[0]
+        if len(sim)!=10:
+            continue
         try:
             t = traces_dict[x[0]].append(Point(float(x[1])/3600.0,float(x[2])/3600.0),t)
         except KeyError:
@@ -41,7 +44,8 @@ def getAllTraces(i):
             trace_temp = Trace()
             trace_temp.append(Point(float(x[1])/3600.0,float(x[2])/3600.0),t)
             traces_dict[x[0]] = trace_temp
-    #print traces_dict.keys()
+    print traces_dict.keys()
+    print len(traces_dict.keys())
     #temp_key = traces_dict.keys()[0]
     #temp_trace = traces_dict[temp_key]
     #print len(temp_trace.array)
@@ -51,6 +55,9 @@ def getAllTraces(i):
     data_file.close()
 
 if __name__=="__main__":
-    getAllTraces(1)
+    for i in range(1,31):
+        print "Getting traces from file:",fileName(i)
+        getAllTraces(i)
+
     #for i in range(30):
     #    print fileName(i)

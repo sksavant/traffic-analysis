@@ -3,5 +3,8 @@
 *.pdf
 *.plt
 *.zip
+*.pptx
+*.pyc
+*.mp4
 Android/
 data/

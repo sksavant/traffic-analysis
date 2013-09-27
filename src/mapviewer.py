@@ -272,7 +272,10 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
         d = GPSData()
         d.getDayTrace(1)
         trace = d.getSimTrace(sim)
-        print trace
+        print len(trace.array)
+        for (p,t) in trace.array:
+            self.osm.gps_add(p.lat, p.lng, heading=osmgpsmap.INVALID)
+        print "Added trace to Map"
 
 if __name__ == "__main__":
     pfile = open(".proxyauth")

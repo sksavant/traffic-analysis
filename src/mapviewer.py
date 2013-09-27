@@ -172,6 +172,15 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
         cb.connect("toggled", self.disable_cache_toggled)
         self.vbox.pack_end(cb, False)
 
+        myhb = gtk.HBox(False, 0)
+        trb = gtk.Button("Show Trace")
+        trb.connect("clicked", self.show_trace_on_map)
+        myhb.pack_end(trb, False)
+        self.sim_entry = gtk.Entry()
+        self.sim_entry.set_text("7760964401")
+        myhb.pack_start(self.sim_entry, False)
+        self.vbox.pack_end(myhb, False)
+
         self.vbox.pack_end(ex, False)
         self.vbox.pack_end(self.latlon_entry, False)
         self.vbox.pack_end(hbox, False)
@@ -257,6 +266,13 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
         elif event.button == 3:
             pb = gtk.gdk.pixbuf_new_from_file_at_size ("poi.png", 24,24)
             self.osm.image_add(lat,lon,pb)
+
+    def show_trace_on_map(self, button):
+        sim = self.sim_entry.get_text()
+        d = GPSData()
+        d.getDayTrace(1)
+        trace = d.getSimTrace(sim)
+        print trace
 
 if __name__ == "__main__":
     pfile = open(".proxyauth")

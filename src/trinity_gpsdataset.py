@@ -48,8 +48,8 @@ class GPSData:
                 trace_temp = Trace()
                 trace_temp.append(Point(float(x[1])/3600.0,float(x[2])/3600.0),t)
                 self.traces_dict[x[0]] = trace_temp
-        print self.traces_dict.keys()
-        print len(self.traces_dict.keys())
+        #print self.traces_dict.keys()
+        #print len(self.traces_dict.keys())
         #temp_key = self.traces_dict.keys()[0]
         #temp_trace = self.traces_dict[temp_key]
         #print len(temp_trace.array)

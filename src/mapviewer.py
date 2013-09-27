@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Modified by Savant Krishna <savant.2020@gmail.com>
+
 """
 Copyright (C) Hadley Rich 2008 <hads@nice.net.nz>
 based on main.c - with thanks to John Stowers
@@ -256,7 +258,7 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
 if __name__ == "__main__":
     pfile = open(".proxyauth")
     [user,pwd] = pfile.read().split()
-    proxy_address = "http://"+user+":"+pwd+"@netmon.iitb.ac.in:80/\0"
+    proxy_address = "http://"+user+":"+pwd+"@netmon.iitb.ac.in:80/"
     u = UI()
     u.show_all()
     if os.name == "nt": gtk.gdk.threads_enter()

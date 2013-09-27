@@ -1,4 +1,6 @@
 #!/usr/bin/python
+# Author : Savant Krishna <savant.2020@gmail.com>
+
 from os import listdir
 from gpstraces import Point,Trace,Region
 

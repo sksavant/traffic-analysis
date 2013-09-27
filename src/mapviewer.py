@@ -37,6 +37,9 @@ print "using library: %s (version %s)" % (osmgpsmap.__file__, osmgpsmap.__versio
 
 assert osmgpsmap.__version__ == "0.7.3"
 
+from gpstraces import Point,Trace
+from trinity_gpsdataset import GPSData
+
 proxy_address=""
 
 class DummyMapNoGpsPoint(osmgpsmap.GpsMap):

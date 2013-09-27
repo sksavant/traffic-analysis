@@ -270,11 +270,12 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
     def show_trace_on_map(self, button):
         sim = self.sim_entry.get_text()
         d = GPSData()
-        d.getDayTrace(1)
-        trace = d.getSimTrace(sim)
-        print len(trace.array)
-        for (p,t) in trace.array:
-            self.osm.gps_add(p.lat, p.lng, heading=osmgpsmap.INVALID)
+        trdict = d.getDayTrace(1)
+        for sim in trdict.keys():
+            trace = d.getSimTrace(sim)
+            print len(trace.array)
+            for (p,t) in trace.array:
+                self.osm.gps_add(p.lat, p.lng, heading=osmgpsmap.INVALID)
         print "Added trace to Map"
 
 if __name__ == "__main__":

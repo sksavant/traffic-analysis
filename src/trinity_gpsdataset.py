@@ -2,6 +2,7 @@
 # Author : Savant Krishna <savant.2020@gmail.com>
 
 from gpstraces import Point,Trace,Region
+import csv
 
 #Convert number n to a string of dig digits
 def toString(n,dig):
@@ -30,17 +31,16 @@ class GPSData:
     def getDayTrace(self,i):
         data_fn = self.data_path+fileName(i)
         data_file = open(data_fn)
-        print data_fn
         data_file.readline() #Header files
+        reader = csv.reader(data_file,skipinitialspace=True)
         ln = 1
-        while(True):
-            x = data_file.readline()
+#read x as a csv Simnumber, latitude,longitude,place,data,time,speed
+        for x in reader:
             if x=="":
                 break
-            #read x as a csv Simnumber, latitude,longitude,place,data,time,speed
-            x = x.split(',')
             t = x[5]
             sim = x[0]
+            ln = ln + 1
             if len(sim)!=10:
                 continue
             try:
@@ -48,7 +48,6 @@ class GPSData:
                     continue
             except ValueError:
                 print "Bad data in line",ln
-                print x
             try:
                 self.traces_dict[x[0]].append(Point(float(x[1])/3600.0,float(x[2])/3600.0),t)
             except KeyError:
@@ -56,7 +55,6 @@ class GPSData:
                 trace_temp = Trace()
                 trace_temp.append(Point(float(x[1])/3600.0,float(x[2])/3600.0),t)
                 self.traces_dict[x[0]] = trace_temp
-            ln = ln + 1
         #print self.traces_dict.keys()
         #print len(self.traces_dict.keys())
         #temp_key = self.traces_dict.keys()[0]
@@ -68,7 +66,9 @@ class GPSData:
         n = 0
         for k in self.traces_dict.keys():
             n = n + len(self.traces_dict[k].array)
-        print n
+        f = open("npoints.txt","a")
+        f.write(str(n)+"\n")
+        f.close()
         data_file.close()
         return self.traces_dict
 
@@ -81,7 +81,7 @@ class GPSData:
 
 if __name__=="__main__":
     d = GPSData()
-    for i in range(1,2):
+    for i in range(1,31):
         print "Getting traces from file:",fileName(i)
         d.getDayTrace(i)
     #for i in range(30):

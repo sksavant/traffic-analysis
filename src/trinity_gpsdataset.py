@@ -30,7 +30,9 @@ class GPSData:
     def getDayTrace(self,i):
         data_fn = self.data_path+fileName(i)
         data_file = open(data_fn)
+        print data_fn
         data_file.readline() #Header files
+        ln = 1
         while(True):
             x = data_file.readline()
             if x=="":
@@ -42,12 +44,19 @@ class GPSData:
             if len(sim)!=10:
                 continue
             try:
+                if float(x[6])==0.0:
+                    continue
+            except ValueError:
+                print "Bad data in line",ln
+                print x
+            try:
                 self.traces_dict[x[0]].append(Point(float(x[1])/3600.0,float(x[2])/3600.0),t)
             except KeyError:
                 #print x[0] #No Key new sim
                 trace_temp = Trace()
                 trace_temp.append(Point(float(x[1])/3600.0,float(x[2])/3600.0),t)
                 self.traces_dict[x[0]] = trace_temp
+            ln = ln + 1
         #print self.traces_dict.keys()
         #print len(self.traces_dict.keys())
         #temp_key = self.traces_dict.keys()[0]
@@ -56,6 +65,10 @@ class GPSData:
         #temp_trace.findLowerLeftPoint().printMe()
         #temp_region = temp_trace.findMaxRegion()
         #temp_region.printMe()
+        n = 0
+        for k in self.traces_dict.keys():
+            n = n + len(self.traces_dict[k].array)
+        print n
         data_file.close()
         return self.traces_dict
 
@@ -68,7 +81,7 @@ class GPSData:
 
 if __name__=="__main__":
     d = GPSData()
-    for i in range(1,31):
+    for i in range(1,2):
         print "Getting traces from file:",fileName(i)
         d.getDayTrace(i)
     #for i in range(30):

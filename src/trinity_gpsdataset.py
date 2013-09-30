@@ -3,6 +3,8 @@
 
 from gpstraces import Point,Trace,Region
 import csv
+import time
+from datetime import datetime
 
 #Convert number n to a string of dig digits
 def toString(n,dig):
@@ -38,7 +40,8 @@ class GPSData:
         for x in reader:
             if x=="":
                 break
-            t = x[5]
+            t = Datetime()
+            x[5]
             sim = x[0]
             ln = ln + 1
             if len(sim)!=10:

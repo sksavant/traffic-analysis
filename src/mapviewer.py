@@ -176,9 +176,12 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
         trb = gtk.Button("Show Trace")
         trb.connect("clicked", self.show_trace_on_map)
         myhb.pack_end(trb, False)
+        self.day_entry = gtk.Entry()
+        self.day_entry.set_text("1")
         self.sim_entry = gtk.Entry()
         self.sim_entry.set_text("7760964401")
         myhb.pack_start(self.sim_entry, False)
+        myhb.pack_start(self.day_entry, False)
         self.vbox.pack_end(myhb, False)
 
         self.vbox.pack_end(ex, False)
@@ -269,13 +272,14 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
 
     def show_trace_on_map(self, button):
         sim = self.sim_entry.get_text()
+        day = int(self.day_entry.get_text())
         d = GPSData()
-        trdict = d.getDayTrace(1)
-        for sim in trdict.keys():
-            trace = d.getSimTrace(sim)
+        trdict = d.getDayTrace(day)
+        #for sim in trdict.keys():
+        trace = d.getSimTrace(sim)
             #print len(trace.array)
-            for (p,t) in trace.array:
-                self.osm.gps_add(p.lat, p.lng, heading=osmgpsmap.INVALID)
+        for (p,t) in trace.array:
+            self.osm.gps_add(p.lat, p.lng, heading=osmgpsmap.INVALID)
         print "Added trace to Map"
 
 if __name__ == "__main__":

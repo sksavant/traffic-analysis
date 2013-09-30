@@ -272,7 +272,11 @@ Enter an repository URL to fetch map tiles from in the box below. Special metach
 
     def show_trace_on_map(self, button):
         sim = self.sim_entry.get_text()
-        day = int(self.day_entry.get_text())
+        try:
+            day = int(self.day_entry.get_text())
+        except ValueError:
+            print "Day should be an integer: got",self.day_entry.get_text()
+            return
         d = GPSData()
         trdict = d.getDayTrace(day)
         #for sim in trdict.keys():

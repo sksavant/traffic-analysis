@@ -244,44 +244,16 @@ Use the official terms and title page layout of your university instead
 
 \begin_layout Author
 Krishna Savant Syreddy
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Date
 Roll no.
  100070056
 \end_layout
 
-\begin_layout Publishers
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "40col%"
-special "none"
-height "1in"
-height_special "totalheight"
-status open
-
-\begin_layout Plain Layout
-Replace this box e.
-\begin_inset space \thinspace{}
-\end_inset
-
-g.
-\begin_inset space ~
-\end_inset
-
-by the coat of arms of the university.
-\end_layout
-
-\end_inset
-
-
+\begin_layout Date
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -295,22 +267,44 @@ baselineskip}
 \end_inset
 
 
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "40mm"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename iitblogo.eps
+	width 4cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
-Bla bla University Testburg
+
+\end_layout
+
+\begin_layout Publishers
+Department of Electrical Engineering
 \begin_inset Newline newline
 \end_inset
 
-Faculty for leading edge science
-\begin_inset Newline newline
-\end_inset
-
-Institute for 
-\noun on
-Nobel
-\noun default
- price winning research
+Indian Institute of Technology Bombay
 \begin_inset VSpace -3cm
 \end_inset
 

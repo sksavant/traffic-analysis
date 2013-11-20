@@ -156,7 +156,7 @@ customHeadersFooters
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -218,10 +218,19 @@ This file is not designed to change the document class.
 
 \end_layout
 
+\begin_layout Title
+Traffic Analysis Project
+\end_layout
+
+\begin_layout Subtitle
+Efficient tools to model and analyze traffic
+\end_layout
+
 \begin_layout Subject
-Thesis to get the degree of a doctor of philosophy
+Submitted in partial fulfillment of the requirements of the degee of Bachelor
+ of Technology 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Use the official terms and title page layout of your university instead
@@ -233,20 +242,13 @@ Use the official terms and title page layout of your university instead
 
 \end_layout
 
-\begin_layout Title
-Title of the thesis
-\end_layout
-
-\begin_layout Subtitle
-Subtitle (if you have one)
-\end_layout
-
 \begin_layout Author
-Your name
+Krishna Savant Syreddy
 \end_layout
 
 \begin_layout Date
-Date (optional)
+Roll no.
+ 100070056
 \end_layout
 
 \begin_layout Publishers

@@ -291,7 +291,26 @@ Background
 \end_layout
 
 \begin_layout Standard
-bla bla bla bla bla bla bla bla bla bla bla, see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mohan2008"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{Mohan2008}
+\end_layout
+
+\end_inset
+
+ bla bla bla bla bla bla bla bla bla bla, see 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:The-next-section"

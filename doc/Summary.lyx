@@ -88,7 +88,7 @@ Abstract
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -113,7 +113,17 @@ adds table of contents entry
 \end_layout
 
 \begin_layout Standard
-Abstract/Summary text
+Abstract/Summary text 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO : Write Abstract
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

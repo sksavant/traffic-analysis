@@ -252,6 +252,22 @@ Krishna Savant Syreddy
 
 Roll no.
  100070056
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Supervisors :
+\begin_inset Newline newline
+\end_inset
+
+____________
+\begin_inset Newline newline
+\end_inset
+
+____________
 \end_layout
 
 \begin_layout Date
@@ -308,6 +324,10 @@ Department of Electrical Engineering
 \end_inset
 
 Indian Institute of Technology Bombay
+\begin_inset Newline newline
+\end_inset
+
+November, 2013
 \begin_inset VSpace -3cm
 \end_inset
 
@@ -317,7 +337,7 @@ Indian Institute of Technology Bombay
 \begin_layout Lowertitleback
 
 \series bold
-Dean
+Examiner(s)
 \series default
 
 \begin_inset VSpace smallskip
@@ -327,9 +347,15 @@ Dean
 \begin_inset Newline newline
 \end_inset
 
-Prof.
- Dr.
- xxx yyy
+_________________
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+_________________
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -339,7 +365,7 @@ Prof.
 
 
 \series bold
-Referees
+Supervisor(s)
 \series default
 
 \begin_inset VSpace smallskip
@@ -350,42 +376,27 @@ Referees
 \end_inset
 
 Prof.
- Dr.
- aaa bbb
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Prof.
- Dr.
- xxx yyy
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\series bold
-Date of the graduation (optional)
-\series default
-
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-xx.yy.zzzz
+ D.
+ Manjunath
 \end_layout
 
 \begin_layout Dedication
-Dedication, cite from a famous person, or whatever you like (optional)
+The worthwhile problems are the ones you can really solve or help solve,
+ the ones you can really contribute something to....
+\begin_inset Newline newline
+\end_inset
+
+ No problem is too small or too trivial if we can really do something about
+ it.
+\begin_inset Newline newline
+\end_inset
+
+
+\size large
+- 
+\emph on
+Richard P.
+ Feynman
 \end_layout
 
 \begin_layout Standard
@@ -594,6 +605,22 @@ thepage
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList algorithm
 
 \end_inset
 

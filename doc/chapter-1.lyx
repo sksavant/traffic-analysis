@@ -283,11 +283,11 @@ thepage
 \end_layout
 
 \begin_layout Chapter
-Title of first chapter
+Introduction
 \end_layout
 
 \begin_layout Section
-Overview
+Background
 \end_layout
 
 \begin_layout Standard
@@ -339,7 +339,11 @@ reference "eq:Integral-sine"
 \end_layout
 
 \begin_layout Section
-The next section
+Objective
+\end_layout
+
+\begin_layout Section
+Layout
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:The-next-section"

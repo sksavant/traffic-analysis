@@ -258,7 +258,7 @@ thepage
 
 \begin_layout Right Footer
 \begin_inset Argument
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -268,7 +268,7 @@ status open
 
 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -283,7 +283,7 @@ thepage
 \end_layout
 
 \begin_layout Chapter
-Title of next chapter
+Literature Review
 \end_layout
 
 \begin_layout Section
@@ -291,31 +291,35 @@ Overview
 \end_layout
 
 \begin_layout Standard
-bla bla bla bla bla bla bla bla bla bla bla bla bla PPS
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "PPS"
-description "Polyphenylene sulfide"
-
-\end_inset
-
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla, see 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rich1921,Marq1963"
-
-\end_inset
-
-.
+In this section, previous reserach showing various approaches and ways to
+ analyze road traffic and infer from user location are presented.
+ Traffic flow in developing countries such as India is chaotic at the best
+ and the assumptions of the standard analysis techniques do not hold in
+ these circumstances.
 \end_layout
 
 \begin_layout Section
 The next section
+\end_layout
+
+\begin_layout Standard
+Mohan et al.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{Mohan2008}
+\end_layout
+
+\end_inset
+
+ presented Nericell, a system which uses sensor data from accelerometers,
+ microphone, GSM radio and GPS in smartphones to monitor road and traffic
+ condition.
 \end_layout
 
 \begin_layout Standard

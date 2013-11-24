@@ -689,7 +689,7 @@ filename "Summary.lyx"
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -702,7 +702,7 @@ pagestyle{fancy}
 
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Reset page style to get page headers again.
@@ -767,7 +767,7 @@ rightmark
 
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Enable page headers and add the chapter to the header line.
@@ -809,6 +809,16 @@ filename "chapter-2.lyx"
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The literature review chapter
 \end_layout
 
 \end_inset
